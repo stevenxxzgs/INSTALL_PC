@@ -174,7 +174,6 @@ triton==2.1.0
 typing_extensions==4.7.1
 tzdata==2023.3
 ubuntu-drivers-common==0.0.0
-ubuntu-pro-client==8001
 ufw==0.36.1
 ultralytics==8.0.221
 unattended-upgrades==0.1
