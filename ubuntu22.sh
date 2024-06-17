@@ -47,7 +47,6 @@ sudo zerotier-cli join 8850338390af128c
 wget https://dl.todesk.com/linux/todesk-v4.7.2.0-amd64.deb
 sudo apt-get install libappindicator3-dev
 sudo apt-get install ./todesk-v4.7.2.0-amd64.deb
-sudo snap install ffmpeg
 
 
 #### disabled apt auto upgrade ####
@@ -131,6 +130,8 @@ else
 fi
 sudo chmod +x /etc/rc.local
 
+
+sudo snap install ffmpeg
 
 #### python soft link ####
 sudo ln -s /usr/bin/python3 /usr/bin/python
