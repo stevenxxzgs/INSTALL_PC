@@ -42,6 +42,9 @@ sudo apt update
 #### install software ####
 sudo add-apt-repository ppa:rapier1/hpnssh
 sudo apt install vim openssh-server mpv curl wget python3-pip wmctrl net-tools -y
+sudo apt install imagemagick -y
+sudo apt install wmctrl -y
+
 curl -s https://install.zerotier.com | sudo bash
 sudo zerotier-cli join 8850338390af128c
 
