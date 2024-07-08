@@ -80,15 +80,40 @@ fi
 
 
 #### CUDA ####
-
-sudo apt-get --purge remove "*cublas*" "cuda*" "nsight*" -y
-sudo apt-get --purge remove "*nvidia*" -y
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
-sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600 -y
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
-sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /" -y
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install cuda-drivers cuda-12-2 libcudnn8 libcudnn8-dev libnccl2 libnccl-dev -y
+sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/12.3.2/local_installers/cuda-repo-ubuntu2204-12-3-local_12.3.2-545.23.08-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu2204-12-3-local_12.3.2-545.23.08-1_amd64.deb -y
+sudo cp /var/cuda-repo-ubuntu2204-12-3-local/cuda-*-keyring.gpg /usr/share/keyrings/ -y
+sudo apt-get update -y
+sudo apt-get -y install cuda-toolkit-12-3
+
+SOURCES_LIST="$HOME/.bashrc"
+SOURCES=(
+"export PATH=/usr/local/cuda/bin:\$PATH"
+"export LD_LIBRARY_PATH=/usr/local/cuda/lib64:\$LD_LIBRARY_PATH"
+)
+if [ -e "$SOURCES_LIST" ]; then
+    # sudo truncate -s 0 "$SOURCES_LIST"
+    echo "here is"
+else
+    sudo touch "$SOURCES_LIST"
+    echo "$SOURCES_LIST 文件不存在，已创建。"
+fi
+for SOURCE in "${SOURCES[@]}"; do
+    echo "$SOURCE" | sudo tee -a "$SOURCES_LIST"
+done
+echo "已成功添加新的路径到 $SOURCES_LIST"
+
+sudo lshw -numeric -C display
+sudo apt-get purge nvidia* -y
+sudo add-apt-repository ppa:graphics-drivers -y
+sudo apt-get update -y
+sudo apt upgrade -y
+ubuntu-drivers list
+sudo apt install nvidia-driver-545 -y
+
+
 
 
 #### Auto opening while power on ####
