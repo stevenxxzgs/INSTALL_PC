@@ -4,24 +4,28 @@ nvcc --version
 ## wget 对应的安装包，cuda=12.0-12.5
 wget https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/10.2.0/local_repo/nv-tensorrt-local-repo-ubuntu2204-10.2.0-cuda-12.5_1.0-1_amd64.deb
 
-## 安装
+## 安装tensorrt
 sudo dpkg -i nv-tensorrt-local-repo-ubuntu2204-10.2.0-cuda-12.5_1.0-1_amd64.deb
 sudo cp /var/nv-tensorrt-local-repo-ubuntu2204-10.2.0-cuda-12.5/*-keyring.gpg /usr/share/keyrings/
 sudo apt-get update
 sudo apt-get install tensorrt
+
+## 安装其他支持
 python3 -m pip install --upgrade pip
 python3 -m pip install wheel
 python3 -m pip install --upgrade tensorrt
 python3 -m pip install numpy onnx onnx-graphsurgeon
+
+## 设置环境变量
 sudo su
 export PATH=/usr/local/cuda-12.3/bin:/usr/local/cuda/bin:$PATH
 su sportvision
 export PATH=/usr/local/cuda-12.3/bin:/usr/local/cuda/bin:$PATH
 
+## 安装pycuda支持
 pip install pycuda==2024.1
 python3 -m pip install --upgrade setuptools pip
 python3 -m pip install nvidia-pyindex
-
 
 ## 检查安装情况
 dpkg-query -W tensorrt
