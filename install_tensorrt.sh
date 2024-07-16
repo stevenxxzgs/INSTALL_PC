@@ -5,7 +5,7 @@
 filename="nv-tensorrt-local-repo-ubuntu2204-10.2.0-cuda-12.5_1.0-1_amd64.deb"
 min_size=2621400000 
 
-# 检查文件是否存在
+# 检查文件是否存在 
 if [ -f "$filename" ]; then
     filesize=$(du -b "$filename" | cut -f1)
     if [ "$filesize" -lt "$min_size" ]; then
