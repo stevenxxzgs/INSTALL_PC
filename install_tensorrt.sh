@@ -1,8 +1,25 @@
 ## 查看cuda版本
-nvcc --version
+# nvcc --version
 
 ## wget 对应的安装包，cuda=12.0-12.5
-wget https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/10.2.0/local_repo/nv-tensorrt-local-repo-ubuntu2204-10.2.0-cuda-12.5_1.0-1_amd64.deb
+filename="nv-tensorrt-local-repo-ubuntu2204-10.2.0-cuda-12.5_1.0-1_amd64.deb"
+min_size=2621400000 
+
+# 检查文件是否存在
+if [ -f "$filename" ]; then
+    filesize=$(du -b "$filename" | cut -f1)
+    if [ "$filesize" -lt "$min_size" ]; then
+        echo "File size is less than 2.5GB. Deleting and downloading..."
+        rm "$filename"
+        wget https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/10.2.0/local_repo/$filename
+    else
+        echo "File already exists and is of sufficient size."
+    fi
+else
+    echo "File does not exist. Downloading..."
+    wget https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/10.2.0/local_repo/$filename
+fi
+
 
 ## 安装tensorrt
 sudo dpkg -i nv-tensorrt-local-repo-ubuntu2204-10.2.0-cuda-12.5_1.0-1_amd64.deb
