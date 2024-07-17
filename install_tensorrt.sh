@@ -40,7 +40,7 @@ su sportvision
 export PATH=/usr/local/cuda-12.3/bin:/usr/local/cuda/bin:$PATH
 
 ## 安装pycuda支持
-pip install pycuda==2024.1
+pip install pycuda -i https://pypi.tuna.tsinghua.edu.cn/simple
 python3 -m pip install --upgrade setuptools pip
 python3 -m pip install nvidia-pyindex
 
