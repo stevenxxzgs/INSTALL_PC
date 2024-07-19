@@ -10,3 +10,6 @@ sv04091211
 sv04091211
 EOF
 
+## 覆写
+sudo mv smb.conf /etc/samba/smb.conf
+sudo systemctl restart smbd
