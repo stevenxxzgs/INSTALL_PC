@@ -28,21 +28,18 @@ sudo apt-get update
 sudo apt-get install tensorrt
 
 ## 安装其他支持
-python3 -m pip install --upgrade pip
-python3 -m pip install wheel
-python3 -m pip install --upgrade tensorrt
-python3 -m pip install numpy onnx onnx-graphsurgeon
+python3 -m pip install --upgrade pip  -i https://pypi.tuna.tsinghua.edu.cn/simple
+python3 -m pip install wheel -i https://pypi.tuna.tsinghua.edu.cn/simple
+python3 -m pip install tensorrt==10.2.0.post1 -i https://pypi.tuna.tsinghua.edu.cn/simple
+python3 -m pip install numpy onnx onnx-graphsurgeon -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 ## 设置环境变量
-sudo su
-export PATH=/usr/local/cuda-12.3/bin:/usr/local/cuda/bin:$PATH
-su sportvision
 export PATH=/usr/local/cuda-12.3/bin:/usr/local/cuda/bin:$PATH
 
 ## 安装pycuda支持
 pip install pycuda -i https://pypi.tuna.tsinghua.edu.cn/simple
-python3 -m pip install --upgrade setuptools pip
-python3 -m pip install nvidia-pyindex
+python3 -m pip install --upgrade setuptools pip -i https://pypi.tuna.tsinghua.edu.cn/simple
+python3 -m pip install nvidia-pyindex -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 ## 检查安装情况
 dpkg-query -W tensorrt
