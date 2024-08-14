@@ -41,7 +41,7 @@ sudo apt update
 
 #### install software ####
 sudo add-apt-repository ppa:rapier1/hpnssh
-sudo apt install vim openssh-server mpv curl wget python3-pip wmctrl net-tools -y
+sudo apt install vim openssh-server mpv curl wget python3-pip wmctrl net-tools sshpass -y
 sudo apt install imagemagick -y
 sudo apt install wmctrl -y
 sudo apt install speedtest-cli -y

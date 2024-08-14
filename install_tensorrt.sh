@@ -1,3 +1,6 @@
+#!/bin/bash
+exec > >(tee -a /home/sportvision/INSTALL_PC/install_tensorrt.log) 2>&1
+
 ## 查看cuda版本
 # nvcc --version
 
