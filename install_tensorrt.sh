@@ -4,6 +4,10 @@ exec > >(tee -a /home/sportvision/INSTALL_PC/install_tensorrt.log) 2>&1
 ## 查看cuda版本
 # nvcc --version
 
+## 查看tensorrt版本
+# sudo apt show libnvinfer-dev
+
+
 ## wget 对应的安装包，cuda=12.0-12.5
 filename="nv-tensorrt-local-repo-ubuntu2204-10.2.0-cuda-12.5_1.0-1_amd64.deb"
 min_size=2621400000 
@@ -33,7 +37,7 @@ sudo apt-get install tensorrt
 ## 安装其他支持
 python3 -m pip install --upgrade pip  -i https://pypi.tuna.tsinghua.edu.cn/simple
 python3 -m pip install wheel -i https://pypi.tuna.tsinghua.edu.cn/simple
-python3 -m pip install tensorrt==10.2.0.post1 -i https://pypi.tuna.tsinghua.edu.cn/simple
+python3 -m pip install tensorrt -i https://pypi.tuna.tsinghua.edu.cn/simple
 python3 -m pip install numpy onnx onnx-graphsurgeon -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 ## 设置环境变量
