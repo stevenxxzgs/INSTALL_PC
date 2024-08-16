@@ -39,7 +39,7 @@ python3 -m pip install --upgrade pip  -i https://pypi.tuna.tsinghua.edu.cn/simpl
 python3 -m pip install wheel -i https://pypi.tuna.tsinghua.edu.cn/simple
 python3 -m pip install tensorrt -i https://pypi.tuna.tsinghua.edu.cn/simple
 python3 -m pip install numpy onnx onnx-graphsurgeon -i https://pypi.tuna.tsinghua.edu.cn/simple
-
+python3 -m pip install protobuf==3.20.3 -i https://pypi.tuna.tsinghua.edu.cn/simple
 ## 设置环境变量
 export PATH=/usr/local/cuda-12.3/bin:/usr/local/cuda/bin:$PATH
 
